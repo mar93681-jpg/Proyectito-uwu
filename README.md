@@ -30,11 +30,11 @@
          +resumen()
      }
  
-     ' "Amplia" (Hereda de)
+     %% "Amplia" (Hereda de)
      EstadisticaBase <|-- EstadisticaCuantitativa
      EstadisticaBase <|-- EstadisticaCualitativa
      
-     ' "Utiliza" (Depende de)
+     %% "Utiliza" (Depende de)
      Main ..> EstadisticaBase : utiliza
      Main ..> EstadisticaCuantitativa : utiliza
      Main ..> EstadisticaCualitativa : utiliza
