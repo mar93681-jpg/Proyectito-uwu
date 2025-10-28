@@ -1,3 +1,5 @@
+ ### Diagrama de Clases (con Relaciones)
+ 
  ```mermaid
  classDiagram
      direction BT
