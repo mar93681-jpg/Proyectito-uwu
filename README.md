@@ -1,29 +1,34 @@
- ### Diagrama de Clases: Estadística
- 
  ```mermaid
  classDiagram
-     EstadisticaBase <|-- EstadisticaCuantitativaBasica
-     EstadisticaBase <|-- ClaseCuantitativa
-     EstadisticaBase <|-- ClaseCualitativa
+     direction BT
      
-     Main ..> EstadisticaBase : usa
- 
      class EstadisticaBase {
-         +dataset
+         <<abstract>>
+         +datos
+         +cantidad_datos()
+         +tipo_datos()
+         +resumen()*
      }
-     class EstadisticaCuantitativaBasica {
-         +mediana()
+     
+     class EstadisticaCuantitativa {
          +media()
-         +percentil()
-     }
-     class ClaseCuantitativa {
-         +varianza()
-         +desviacionEstandar()
-     }
-     class ClaseCualitativa {
+         +mediana()
          +moda()
-         +frecuencia()
+         +varianza()
+         +desviacion_estandar()
+         +percentil()
+         +cuartiles()
+         +minimo()
+         +maximo()
+         +promedio()
+         +resumen()
      }
-     class Main {
-         +ejecutar()
+ 
+     class EstadisticaCualitativa {
+         +moda()
+         +tabla_frecuencias()
+         +resumen()
      }
+ 
+     EstadisticaBase <|-- EstadisticaCuantitativa
+     EstadisticaBase <|-- EstadisticaCualitativa
