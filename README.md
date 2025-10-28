@@ -6,3 +6,34 @@ Indicaciones:
 Descripción del caso:
 Elaborar o desarrollar un paquete o librería en Python que realice estadísticas básicas o estándares de un conjunto de datos usando elementos de POO (clases, herencia, polimorfismo, etc). Sugerencia de contenido: estadísticas resúmenes para datos cuantitativos, por ejemplo: media, mediana, desviación estándar algunos percentiles, etc y para datos cualitativos: moda (s), tabla de frecuencia.
 #holi
+
+ ```mermaid
+ classDiagram
+     EstadisticaBase <|-- EstadisticaCuantitativaBasica
+     EstadisticaBase <|-- ClaseCuantitativa
+     EstadisticaBase <|-- ClaseCualitativa
+     
+     Main ..> EstadisticaBase : usa
+     Main ..> EstadisticaCuantitativaBasica : usa
+     Main ..> ClaseCuantitativa : usa
+     Main ..> ClaseCualitativa : usa
+ 
+     class EstadisticaBase {
+         +calcular()
+         +mostrarResultado()
+     }
+     class EstadisticaCuantitativaBasica {
+         +calcularMedia()
+         +calcularMediana()
+     }
+     class ClaseCuantitativa {
+         +calcularVarianza()
+         +calcularDesviacion()
+     }
+     class ClaseCualitativa {
+         +contarFrecuencia()
+         +calcularModa()
+     }
+     class Main {
+         +ejecutarAnalisis()
+     }
