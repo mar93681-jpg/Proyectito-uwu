@@ -2,6 +2,10 @@
  classDiagram
      direction BT
      
+     class Main {
+         +ejecutar_analisis()
+     }
+ 
      class EstadisticaBase {
          <<abstract>>
          +datos
@@ -13,14 +17,8 @@
      class EstadisticaCuantitativa {
          +media()
          +mediana()
-         +moda()
          +varianza()
-         +desviacion_estandar()
          +percentil()
-         +cuartiles()
-         +minimo()
-         +maximo()
-         +promedio()
          +resumen()
      }
  
@@ -30,5 +28,11 @@
          +resumen()
      }
  
+     ' "Amplia" (Hereda de)
      EstadisticaBase <|-- EstadisticaCuantitativa
      EstadisticaBase <|-- EstadisticaCualitativa
+     
+     ' "Utiliza" (Depende de)
+     Main ..> EstadisticaBase : utiliza
+     Main ..> EstadisticaCuantitativa : utiliza
+     Main ..> EstadisticaCualitativa : utiliza
